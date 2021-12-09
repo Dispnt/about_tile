@@ -10,8 +10,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        'background': '#f7f2f2',
-        'twitter':'#98d0ff'
+        'background':
+        {
+          DEFAULT:'#f7f2f2',
+          dark:'#090C10'
+        } ,
+        'twitter':'#98d0ff',
        },
        minHeight:{
          'lg': '280px',
@@ -22,9 +26,14 @@ module.exports = {
         'sm': '164px'
        }
     },
+    backgroundImage: (theme) => ({
+      'fofu1': "url('./img/1.png')",
+      'fofu2': "url('./img/2.png')",
+      'none' : "url('./img/none.png')",
+     })
   },
   variants: {
-    extend: {},
+    extend: {backgroundImage: ['dark'],},
   },
   plugins: [],
 }

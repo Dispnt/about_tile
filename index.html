@@ -31,7 +31,7 @@
 			height: 34px;
 			width: 49px;
 			border-radius: 16px;
-			background: rgb(255, 255, 255);
+			/* background: rgb(255, 255, 255); */
 			z-index: -1;
 		}
 
@@ -67,8 +67,6 @@
 			-webkit-box-pack: justify;
 			justify-content: space-between;
 			padding: 36px 40px;
-			border-radius: 32px;
-			background: rgb(255, 255, 255);
 			box-shadow: transparent 0px 0px 0px 2px inset;
 		}
 
@@ -197,21 +195,21 @@
 	</script>
 </head>
 
-<body class="font-sans font-semibold bg-background dark:bg-gray-800 select-none">
+<body class="font-sans font-semibold bg-background dark:bg-background-dark dark:text-white select-none">
 	<header
 		class="p-4 h-36 px-10 pb-0 flex-col mb-12 lg:mb-0 lg:flex-row lg:items-center lg:justify-between flex justify-between flex items-center">
 		<div class="my-10 lg:mb-4 flex items-center justify-between">
-			<h1 class="leading-none text-2xl text-gray-darkest">
+			<h1 class="leading-none text-2xl text-gray-darkest dark:text-white">
 				<a class="no-underline font-serif text-gray-darkest hover:text-black text-4xl">foofu</a>
 			</h1>
 		</div>
-		<div class="ffhyrg flex">
-			<div class="bgltbu" style="left: 14px; width: 48px;"></div>
+		<div class="ffhyrg flex ">
+			<div class="bgltbu bg-white dark:bg-black" style="left: 14px; width: 48px;"></div>
 			<!-- <div class="bgltbu" style="left: 5px; width: 50px;"></div> -->
-			<div class="menu font-sans font-normal">All</div>
-			<div class="menu font-sans font-normal">About</div>
-			<div class="menu font-sans font-normal">Fur</div>
-			<div class="menu font-sans font-normal">Media</div>
+			<div class="menu font-sans font-normal dark:text-white">All</div>
+			<div class="menu font-sans font-normal dark:text-white">About</div>
+			<div class="menu font-sans font-normal dark:text-white">Fur</div>
+			<div class="menu font-sans font-normal dark:text-white">Media</div>
 		</div>
 		<nav>
 			<ul class="list-reset hidden lg:flex lg:items-center">
@@ -226,15 +224,15 @@
 	<div class="flex justify-items-center">
 		<div class="mt-7 lg:mt-0 grid-cols-full lg:grid-cols-4 grid gap-4 mx-auto justify-items-center">
 			<div
-				class="p-6 w-full col-span-2 min-h-sm lg:min-h-lg bg-white rounded-lg flex items-center window hover:shadow-xl">
+				class="p-6 w-full col-span-2 min-h-sm lg:min-h-lg bg-white dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div>
-					<div class="text-xl font-medium text-black font-serif font-extrabold">Intro</div>
+					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Intro</div>
 					<p style="z-index:1" class="lFodq">introintrointrointrointrointro
 					</p>
 				</div>
 			</div>
 
-			<div class="p-6 w-full justify-center NightModeWindow bg-white rounded-lg flex items-center window hover:shadow-xl">
+			<div class="p-6 w-full justify-center NightModeWindow bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div class="NightModeToggle krLxJa">
 					<div style="left: 6px; transform-origin: 75% 50% 0px;"
 						class="ebpAiN"><svg xmlns="http://www.w3.org/2000/svg"
@@ -249,9 +247,9 @@
 			</div>
 
 			<div
-				class="p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white rounded-lg flex items-center window hover:shadow-xl">
+				class="p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div>
-				<div class="text-xl font-medium text-black font-serif font-extrabold">Posts</div>
+				<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Posts</div>
 			</div>
 				<!-- <div>
 					<div class="absolute  left-0 top-0 text-xl font-medium text-black font-serif font-extrabold">Weibo Content</div>
@@ -266,7 +264,7 @@
 
 
 			<div
-				class="w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white rounded-lg items-center window  hover:shadow-xl">
+				class="w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg items-center window  hover:shadow-xl">
 				<div class="spotify rounded-lg ">
 					<img src="./img/spotify.svg" class="SpotifyLogo" style="margin-bottom: 18px;">
 					<div class=" SzFbN">
@@ -276,16 +274,16 @@
 								<div style="animation:playing 1.26s infinite ease" class="PlayingIconPart"></div>
 								<div style="animation:playing 0.62s infinite ease" class="PlayingIconPart"></div>
 							</div>
-							<p color="#6ed2b7" class="PlayingStatus">Offline. Last played</p>
+							<p color="#6ed2b7" class="PlayingStatus font-bold">Offline. Last played</p>
 						</div>
-						<h2 class="text-xl rhhZB caOpuW font-serif font-black text-xl">在世界的盡頭大聳地說我恨你</h2>
+						<h2 class="text-xl rhhZB caOpuW font-serif font-black text-xl dark:text-white">在世界的盡頭大聳地說我恨你</h2>
 						<p style="line-height:22px" class="typography__BodyCopy-sc-163cb5u-4 font-normal text-sm">魚丁糸
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="p-6 bg-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-twitter window hover:shadow-xl"
+			<div class="p-6 bg-white dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-twitter window hover:shadow-xl"
 				style="width:276px">
 				<div class="flex transform scale-75 lg:scale-100 items-center justify-center text-white fill-current">
 					<svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 75.121 61.052">
@@ -296,15 +294,14 @@
 				</div>
 			</div>
 
-			<div class="bg-cover min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white rounded-lg flex items-center window row-span-2 hover:shadow-xl"
-				style="width:276px;background-image: url('img/1.png')">
+			<div class="bg-cover border-4 border-transparent  bg-fofu1 dark:bg-none  dark:border-white min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white dark:bg-background-dark rounded-lg flex items-center window row-span-2 hover:shadow-xl"
+				style="width:276px;">
 				<div>
 					<img class="rounded-lg w-3/5 lg:w-1/2" src="img/4.png" style="margin:auto">
 				</div>
 			</div>
 
-			<div class="bg-cover min-h-sm lg:min-h-lg w-full max-w-full bg-white rounded-lg flex items-center lg:col-span-2 window hover:shadow-xl"
-				style="background-image: url('img/2.png')">
+			<div class="bg-cover border-4 border-transparent  bg-fofu2 dark:bg-none border-4 dark:border-white min-h-sm lg:min-h-lg w-full max-w-full bg-white dark:bg-background-dark rounded-lg flex items-center lg:col-span-2 window hover:shadow-xl">
 				<img class="rounded-lg w-2/5 lg:w-1/4" src="img/3.png" style="margin:auto">
 			</div>
 
