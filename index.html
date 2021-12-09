@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./tailwind.css">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=0.1, maximum-scale=1.0, minimum-scale=0.7, user-scalable=no">
+	<style>
+		.ffhyrg {
+			position: relative;
+			background: rgba(0, 0, 0, 0.04);
+			border-radius: 23px;
+			transform: translateX(0px);
+			font-size: 20px;
+			padding: 10px;
+		}
+
+		/* .ffhyrg {
+			position: relative;
+			background: rgba(0, 0, 0, 0.04);
+			border-radius: 23px;
+			transform: translateX(0px);
+			font-size: 14px;
+			padding: 5px;
+		} */
+
+		.bgltbu {
+			position: absolute;
+			height: 34px;
+			width: 49px;
+			border-radius: 16px;
+			background: rgb(255, 255, 255);
+			z-index: -1;
+		}
+
+		/* .bgltbu {
+			position: absolute;
+			height: 32px;
+			width: 49px;
+			border-radius: 16px;
+			background: rgb(255, 255, 255);
+			z-index: -1;
+		} */
+
+		.menu {
+			border-radius: 50px;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+			height: 32px;
+			padding: 0px 16px;
+			transition: opacity 0.3s ease 0s;
+			color: rgb(13, 17, 23);
+		}
+
+		.window {
+			transition: box-shadow 1s;
+		}
+
+		.spotify {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			-webkit-box-pack: justify;
+			justify-content: space-between;
+			padding: 36px 40px;
+			border-radius: 32px;
+			background: rgb(255, 255, 255);
+			box-shadow: transparent 0px 0px 0px 2px inset;
+		}
+
+		.SpotifyLogo {
+			width: 54px;
+			height: 54px;
+		}
+
+
+		.PlayingStatus {
+			font-size: 14px;
+			/* font-family: "Silka Medium"; */
+			line-height: 24px;
+			letter-spacing: 0.25px;
+			font-weight: 400;
+			color: rgb(110, 210, 183);
+		}
+
+		.PlayingIcon {
+			height: 20px;
+			margin-right: 4px;
+			position: relative;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+		}
+
+		.PlayingIconPart {
+			width: 3px;
+			height: 3px;
+			margin-right: 3px;
+			background: rgb(110, 210, 183);
+			border-radius: 1.5px;
+		}
+
+		/* 			.rhhZB {
+				font-family: "Moranga Bold";
+				line-height: 32px;
+				color: rgb(13, 17, 23);
+			} */
+
+		.gagHfL {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			justify-content: center;
+			border-radius: 32px;
+			background: rgb(152, 208, 255);
+			box-shadow: transparent 0px 0px 0px 2px inset;
+		}
+
+		.gwskVc {
+			height: 101%;
+			width: 100%;
+			object-fit: cover;
+		}
+
+		.GUaRk {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+
+		.cGyDym {
+			width: 36px;
+			height: 36px;
+			border-radius: 18px;
+			position: absolute;
+			bottom: 14px;
+			left: 14px;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+			overflow: hidden;
+			transition: box-shadow 0.2s ease-out 0s;
+			background: rgb(255, 255, 255);
+			border: none;
+		}
+
+		.krLxJa {
+			height: 48px;
+			width: 90px;
+			border-radius: 40px;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+			position: relative;
+			background: rgb(240, 242, 248);
+			box-shadow: transparent 0px 0px 0px 2px inset;
+		}
+
+		.ebpAiN {
+			width: 36px;
+			height: 36px;
+			border-radius: 30px;
+			background: rgb(13, 17, 23);
+			position: absolute;
+			display: flex;
+			-webkit-box-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			justify-content: center;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
+
+	<script>
+		var theme = 'light';
+		$(function() {
+			$('.NightModeWindow').click(function(){
+			if (theme == 'light' ) {
+			document.documentElement.classList.add('dark')
+			theme = 'dark';
+			} else {
+			document.documentElement.classList.remove('dark')
+			theme = 'light';
+			}
+		})
+		});
+	</script>
+</head>
+
+<body class="font-sans font-semibold bg-background dark:bg-gray-800 select-none">
+	<header
+		class="p-4 h-36 px-10 pb-0 flex-col mb-12 lg:mb-0 lg:flex-row lg:items-center lg:justify-between flex justify-between flex items-center">
+		<div class="my-10 lg:mb-4 flex items-center justify-between">
+			<h1 class="leading-none text-2xl text-gray-darkest">
+				<a class="no-underline font-serif text-gray-darkest hover:text-black text-4xl">foofu</a>
+			</h1>
+		</div>
+		<div class="ffhyrg flex">
+			<div class="bgltbu" style="left: 14px; width: 48px;"></div>
+			<!-- <div class="bgltbu" style="left: 5px; width: 50px;"></div> -->
+			<div class="menu font-sans font-normal">All</div>
+			<div class="menu font-sans font-normal">About</div>
+			<div class="menu font-sans font-normal">Fur</div>
+			<div class="menu font-sans font-normal">Media</div>
+		</div>
+		<nav>
+			<ul class="list-reset hidden lg:flex lg:items-center">
+				<li class="md:ml-4">
+					<a
+						class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="flex justify-items-center">
+		<div class="mt-7 lg:mt-0 grid-cols-full lg:grid-cols-4 grid gap-4 mx-auto justify-items-center">
+			<div
+				class="p-6 w-full col-span-2 min-h-sm lg:min-h-lg bg-white rounded-lg flex items-center window hover:shadow-xl">
+				<div>
+					<div class="text-xl font-medium text-black font-serif font-extrabold">Intro</div>
+					<p style="z-index:1" class="lFodq">introintrointrointrointrointro
+					</p>
+				</div>
+			</div>
+
+			<div class="p-6 w-full justify-center NightModeWindow bg-white rounded-lg flex items-center window hover:shadow-xl">
+				<div class="NightModeToggle krLxJa">
+					<div style="left: 6px; transform-origin: 75% 50% 0px;"
+						class="ebpAiN"><svg xmlns="http://www.w3.org/2000/svg"
+							width="17" height="19" viewBox="0 0 17 19" class="MoonSVG__SVG-jbpqn0-0 eweehR"
+							transform-origin="8.477352142333984px 9.486003313912079px"
+							style="transform: none; transform-origin: 8.47735px 9.486px;">
+							<path id="moon"
+								d="M36.7,18.974a9.469,9.469,0,0,0,7.369-3.513.445.445,0,0,0-.428-.717A7.432,7.432,0,0,1,38.571.982a.445.445,0,0,0-.139-.824A9.488,9.488,0,1,0,36.7,18.974Z"
+								transform="translate(-27.211)" fill="#ffe3a4"></path>
+						</svg></div>
+				</div>
+			</div>
+
+			<div
+				class="p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white rounded-lg flex items-center window hover:shadow-xl">
+				<div>
+				<div class="text-xl font-medium text-black font-serif font-extrabold">Posts</div>
+			</div>
+				<!-- <div>
+					<div class="absolute  left-0 top-0 text-xl font-medium text-black font-serif font-extrabold">Weibo Content</div>
+					<div class="grid grid-cols-1 divide-y divide-yellow-500">
+						<div>1​​​​</div>
+						<div>2</div>
+						<div>3</div>
+					  </div>
+				</div> -->
+
+			</div>
+
+
+			<div
+				class="w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white rounded-lg items-center window  hover:shadow-xl">
+				<div class="spotify rounded-lg ">
+					<img src="./img/spotify.svg" class="SpotifyLogo" style="margin-bottom: 18px;">
+					<div class=" SzFbN">
+						<div class="flex align-center">
+							<div class="PlayingIcon">
+								<div style="animation:playing 0.85s infinite ease" class="PlayingIconPart"></div>
+								<div style="animation:playing 1.26s infinite ease" class="PlayingIconPart"></div>
+								<div style="animation:playing 0.62s infinite ease" class="PlayingIconPart"></div>
+							</div>
+							<p color="#6ed2b7" class="PlayingStatus">Offline. Last played</p>
+						</div>
+						<h2 class="text-xl rhhZB caOpuW font-serif font-black text-xl">在世界的盡頭大聳地說我恨你</h2>
+						<p style="line-height:22px" class="typography__BodyCopy-sc-163cb5u-4 font-normal text-sm">魚丁糸
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="p-6 bg-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-twitter window hover:shadow-xl"
+				style="width:276px">
+				<div class="flex transform scale-75 lg:scale-100 items-center justify-center text-white fill-current">
+					<svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 75.121 61.052">
+						<path id="icons8-twitter"
+							d="M75.063,12.844a30.83,30.83,0,0,1-8.858,2.43A15.451,15.451,0,0,0,72.984,6.75,30.947,30.947,0,0,1,63.2,10.485,15.418,15.418,0,0,0,36.937,24.542,43.765,43.765,0,0,1,5.17,8.441,15.445,15.445,0,0,0,9.94,29.019a15.4,15.4,0,0,1-6.984-1.932v.193A15.438,15.438,0,0,0,15.317,42.4a15.421,15.421,0,0,1-4.057.538,14.847,14.847,0,0,1-2.9-.28,15.447,15.447,0,0,0,14.4,10.709,30.9,30.9,0,0,1-19.14,6.595,30.3,30.3,0,0,1-3.671-.217A43.544,43.544,0,0,0,23.56,66.666c28.348,0,43.852-23.483,43.852-43.846,0-.667-.018-1.341-.04-2a31.325,31.325,0,0,0,7.692-7.98Z"
+							transform="translate(0.058 -5.614)"></path>
+					</svg>
+				</div>
+			</div>
+
+			<div class="bg-cover min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white rounded-lg flex items-center window row-span-2 hover:shadow-xl"
+				style="width:276px;background-image: url('img/1.png')">
+				<div>
+					<img class="rounded-lg w-3/5 lg:w-1/2" src="img/4.png" style="margin:auto">
+				</div>
+			</div>
+
+			<div class="bg-cover min-h-sm lg:min-h-lg w-full max-w-full bg-white rounded-lg flex items-center lg:col-span-2 window hover:shadow-xl"
+				style="background-image: url('img/2.png')">
+				<img class="rounded-lg w-2/5 lg:w-1/4" src="img/3.png" style="margin:auto">
+			</div>
+
+			<!-- <div
+				class="p-6 min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg w-full bg-white rounded-lg flex items-center lg:row-span-2 window hover:shadow-xl">
+				<div>
+					<div class="text-xl font-medium text-black font-serif font-extrabold">Title6</div>
+					<p class="text-gray-500">You have a new message!</p>
+				</div>
+			</div> -->
+
+
+		</div>
+	</div>
+
+</body>
+
+</html>
