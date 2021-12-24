@@ -181,17 +181,21 @@
 
 	<script>
 		var theme = 'light';
+		var animationInR = "animate__animated animate__fadeInRight animate__faster"
+		var animationOutR = "animate__animated animate__fadeOutRight animate__faster"
+		var animationInL = "animate__animated animate__fadeInLeft animate__faster"
+		var animationOutL = "animate__animated animate__fadeOutLeft animate__faster"
 		$(function () {
 			$('.NightModeWindow').click(function () {
 				if (theme == 'light') {
 					document.documentElement.classList.add('dark')
-					$("#moonToggle").removeClass('animate__animated animate__fadeInRight animate__faster').addClass('animate__animated animate__fadeOutRight animate__faster')
-					$("#sunToggle").removeClass('invisible animate__animated animate__fadeOutLeft animate__faster').addClass('animate__animated animate__fadeInLeft animate__faster')
+					$("#moonToggle").removeClass(animationInR).addClass(animationOutR)
+					$("#sunToggle").removeClass('invisible '+animationOutL).addClass(animationInL)
 					theme = 'dark';
 				} else {
 					document.documentElement.classList.remove('dark')
-					$("#moonToggle").removeClass('animate__animated animate__fadeOutRight animate__faster').addClass('animate__animated animate__fadeInRight animate__faster')
-					$("#sunToggle").removeClass('animate__animated animate__fadeInLeft animate__faster').addClass('animate__animated animate__fadeOutLeft animate__faster')
+					$("#moonToggle").removeClass(animationOutR).addClass(animationInR)
+					$("#sunToggle").removeClass(animationInL).addClass(animationOutL)
 					theme = 'light';
 				}
 			})
