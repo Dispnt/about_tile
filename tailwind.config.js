@@ -16,15 +16,21 @@ module.exports = {
           dark:'#090C10'
         } ,
         'twitter':'#98d0ff',
+        'steam':'#353230'
        },
        minHeight:{
          'lg': '280px',
          'sm': '164px'
        },
        maxWidth:{
-        'lg': '280px',
-        'sm': '164px'
+        '2lg': '580px',
+        'lg':  '280px',
+        '2sm': '456px',
+        'sm':  '164px'
        }
+    },
+    scale: {
+      '35': '.35',
     },
     backgroundImage: (theme) => ({
       'fofu1': "url('./img/1.png')",
