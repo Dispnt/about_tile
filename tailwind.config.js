@@ -6,7 +6,7 @@ module.exports = {
       'none': '0',
      DEFAULT: '0.25rem',
      'lg': '32px',
-     
+     'full': '9999px',
     },
     extend: {
       colors: {
@@ -27,7 +27,18 @@ module.exports = {
         'lg':  '280px',
         '2sm': '456px',
         'sm':  '164px'
-       }
+       },
+       spacing: {
+        '85px': '85px',
+        '110px': '110px',
+        '55px':'55px'
+      },
+      blur: {
+        DEFAULT: '8px',
+      },
+      transitionProperty: {
+        'blur': 'filter'
+      }
     },
     scale: {
       '35': '.35',

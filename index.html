@@ -26,12 +26,35 @@
 			padding: 5px;
 		} */
 
-		.bgltbu {
-			position: absolute;
+		#allSelector {
 			height: 34px;
-			width: 49px;
+			left: 14px; 
+			width: 48px;
 			border-radius: 16px;
-			/* background: rgb(255, 255, 255); */
+			z-index: -1;
+		}
+
+		#aboutSelector {
+			height: 34px;
+			left: 72px;
+			width: 74px;
+			border-radius: 16px;
+			z-index: -1;
+		}
+
+		#furSelector {
+			height: 34px;
+			left: 157px;
+			width: 48px;
+			border-radius: 16px;
+			z-index: -1;
+		}
+		
+		#mediaSelector {
+			height: 34px;
+			left: 218px;
+			width: 74px;
+			border-radius: 16px;
 			z-index: -1;
 		}
 
@@ -56,7 +79,7 @@
 		}
 
 		.window {
-			transition: box-shadow 1s;
+			transition: 1s filter linear,box-shadow 1s;
 		}
 
 		.spotify {
@@ -176,29 +199,71 @@
 			-webkit-box-pack: center;
 			justify-content: center;
 		}
+
+
 	</style>
 	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
 
 	<script>
 		var theme = 'light';
-		var animationInR = "animate__animated animate__fadeInRight animate__faster"
-		var animationOutR = "animate__animated animate__fadeOutRight animate__faster"
-		var animationInL = "animate__animated animate__fadeInLeft animate__faster"
-		var animationOutL = "animate__animated animate__fadeOutLeft animate__faster"
+		const animationInR = "animate__animated animate__fadeInRight animate__fast"
+		const animationOutR = "animate__animated animate__fadeOutRight animate__fast"
+		const animationInL = "animate__animated animate__fadeInLeft animate__fast"
+		const animationOutL = "animate__animated animate__fadeOutLeft animate__fast"
 		$(function () {
+			//header Label
+			$("#allLabel").click(function(){ //AllLabel
+				$(".window").removeClass("blur")//remove all blur
+				
+				$("#aboutSelector").removeClass(animationInL).addClass(animationOutL) //remove →口 ，add 口→
+				$("#allSelector").removeClass('invisible '+ animationOutR).addClass(animationInR) //add 口←
+			})
+
+			$("#aboutLabel").click(function(){
+				//blur
+				$(".window:not(#intro,#nightmode)").addClass("blur")
+
+				$("#allSelector").removeClass(animationInR).addClass(animationOutR) //remove 口← , add 口→
+				$("#aboutSelector").removeClass('invisible '+animationOutL).addClass(animationInL) //remove 口→，add →口
+			})
+			
+
+			//Night Mode toggle & animation
 			$('.NightModeWindow').click(function () {
 				if (theme == 'light') {
-					document.documentElement.classList.add('dark')
+					$("html").addClass('dark')
 					$("#moonToggle").removeClass(animationInR).addClass(animationOutR)
-					$("#sunToggle").removeClass('invisible '+animationOutL).addClass(animationInL)
+					$("#sunToggle").removeClass('invisible ' + animationOutL).addClass(animationInL)
 					theme = 'dark';
 				} else {
-					document.documentElement.classList.remove('dark')
+					$("html").removeClass('dark')
 					$("#moonToggle").removeClass(animationOutR).addClass(animationInR)
 					$("#sunToggle").removeClass(animationInL).addClass(animationOutL)
 					theme = 'light';
 				}
 			})
+			function link_btn(windowObj,LinkBtn,LinkURL){
+					$(windowObj).hover(function () { // cursor on window
+						$(LinkBtn).removeClass('invisible ' + animationOutL).addClass(animationInL); //btn in anim
+						$(LinkBtn).hover(function(){ // cursor on btn
+						$(LinkBtn).removeClass(animationInL).addClass("animate__animated animate__pulse animate__faster animate__infinite");//btn pulse
+						},function(){
+							$(LinkBtn).removeClass("animate__animated animate__pulse animate__faster animate__infinite");//stop pulse when cursor out
+						})
+
+						$(LinkBtn).click(function(){
+							window.open(LinkURL, '_blank');
+						})
+
+				}, function () {
+					$(LinkBtn).removeClass(animationInL).addClass(animationOutL);//btn out anim
+				});
+			}
+			//twitter Link Btn animation
+			link_btn(".bg-twitter","#twitterLink","https://twitter.com/Dispnt")
+			link_btn(".bg-steam","#steamLink","http://steam.dispnt.com/")
+			
+			
 		});
 	</script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -213,46 +278,45 @@
 			</h1>
 		</div>
 		<div class="ffhyrg flex ">
-			<div class="bgltbu bg-white dark:bg-black" style="left: 14px; width: 48px;"></div>
-			<!-- <div class="bgltbu" style="left: 5px; width: 50px;"></div> -->
-			<div class="menu font-sans font-normal dark:text-white">All</div>
-			<div class="menu font-sans font-normal dark:text-white">About</div>
-			<div class="menu font-sans font-normal dark:text-white">Fur</div>
-			<div class="menu font-sans font-normal dark:text-white">Media</div>
+			<div id="allSelector" class=" absolute bg-white dark:bg-black" ></div>
+			<div id="allLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">All</div>
+
+			<div id="aboutSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="aboutLabel"  class="cursor-pointer menu font-sans font-normal dark:text-white">About</div>
+
+			<div id="furSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="furLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Fur</div>
+
+			<div id="mediaSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="mediaLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Media</div>
 		</div>
 		<nav>
 			<ul class="list-reset hidden lg:flex lg:items-center">
 				<li class="md:ml-4">
 					<a
-						class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Contact</a>
+						class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Back</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
 
-	<div class="flex justify-items-center">
+	<div class="flex justify-items-center ">
 		<div class="mt-7 lg:mt-0 grid-cols-full lg:grid-cols-4 grid gap-4 mx-auto justify-items-center">
 			<div
-				class="p-6 w-full col-span-2 max-w-2sm lg:max-w-2lg min-h-sm lg:min-h-lg bg-white dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
+				id="intro" class="p-6 w-full col-span-2 max-w-2sm lg:max-w-2lg min-h-sm lg:min-h-lg bg-white dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div>
 					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Intro</div>
-					<p style="z-index:1" class="lFodq">A semi-intellectual cynic in Shanghai
-						A semi-intellectual cynic in Shanghai
-						A semi-intellectual cynic in Shanghai
-						A semi-intellectual cynic in Shanghai
-
-
+					<p style="z-index:1" class="lFodq">Woshishabi,WoshishabiWoshishabiWoshishabiWoshishabiWoshishabi
+						WoshishabiWoshishabiWoshishabi
 					</p>
-					<!-- <h1 class="animate__animated animate__fadeOutRight animate__infinite">An animated element</h1> -->
 				</div>
 
 			</div>
 
 			<div
-				class="p-6 w-full justify-center NightModeWindow bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
-				<div class="NightModeToggle krLxJa ">
-					<div id="moonToggle" style="left: 6px; transform-origin: 75% 50% 0px;"
-						class="ebpAiN "><svg
+				id="nightmode" class="p-6 w-full justify-center NightModeWindow bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
+				<div class="NightModeToggle krLxJa cursor-pointer">
+					<div id="moonToggle" style="left: 6px; transform-origin: 75% 50% 0px;" class="ebpAiN "><svg
 							xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19"
 							class="MoonSVG__SVG-jbpqn0-0 eweehR"
 							transform-origin="8.477352142333984px 9.486003313912079px"
@@ -263,10 +327,9 @@
 						</svg>
 					</div>
 
-					<div id="sunToggle" style="transform-origin: 50% 50% 0px; right: 6px;"
-						class="ebpAiN invisible"><svg xmlns="http://www.w3.org/2000/svg"
-							width="24" height="24" viewBox="0 0 24 24" class="SunSVG__SVG-sc-192wt3d-0 jOrPHu"
-							transform-origin="12px 11.999148885835893px"
+					<div id="sunToggle" style="transform-origin: 50% 50% 0px; right: 6px;" class="ebpAiN invisible"><svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+							class="jOrPHu" transform-origin="12px 11.999148885835893px"
 							style="transform: none; transform-origin: 12px 11.9991px;">
 							<path id="icons8-sun_1_" data-name="icons8-sun (1)"
 								d="M12,0a.945.945,0,0,0-1,1V2a1,1,0,0,0,2,0V1A.945.945,0,0,0,12,0ZM4.2,3.2a.986.986,0,0,0-.7.3.967.967,0,0,0,0,1.4l.7.7A.99.99,0,0,0,5.6,4.2l-.7-.7A.991.991,0,0,0,4.2,3.2Zm15.6,0a.991.991,0,0,0-.7.3l-.7.7a.99.99,0,0,0,1.4,1.4l.7-.7a.967.967,0,0,0,0-1.4A.986.986,0,0,0,19.8,3.2ZM12,5a7,7,0,1,0,7,7,7,7,0,0,0-7-7ZM1,11a1,1,0,0,0,0,2H2a1,1,0,0,0,0-2Zm21,0a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM4.9,18.1a.991.991,0,0,0-.7.3l-.7.7a.99.99,0,0,0,1.4,1.4l.7-.7a.967.967,0,0,0,0-1.4A.986.986,0,0,0,4.9,18.1Zm14.2,0a.986.986,0,0,0-.7.3.967.967,0,0,0,0,1.4l.7.7a.99.99,0,0,0,1.4-1.4l-.7-.7A.991.991,0,0,0,19.1,18.1ZM12,21a.945.945,0,0,0-1,1v1a1,1,0,0,0,2,0V22A.945.945,0,0,0,12,21Z"
@@ -281,7 +344,7 @@
 			</div>
 
 			<div
-				class="p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg flex items-center window hover:shadow-xl">
+				id="posts" class=" p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div>
 					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Posts</div>
 				</div>
@@ -298,7 +361,7 @@
 
 
 			<div
-				class="w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg items-center window  hover:shadow-xl">
+				id="spotify" class=" w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg items-center window  hover:shadow-xl">
 				<div class="spotify rounded-lg ">
 					<img src="./img/spotify.svg" class="SpotifyLogo" style="margin-bottom: 18px;">
 					<div class=" SzFbN">
@@ -318,14 +381,27 @@
 				</div>
 			</div>
 
-			<div class="p-6 dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-twitter window hover:shadow-xl"
+			<div id="twitter" class="duration-1000 ease-linear relative p-6 dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-twitter window hover:shadow-xl"
 				style="width:276px">
-				<div class="flex transform scale-75 lg:scale-100 items-center justify-center text-white fill-current">
+				<div class="flex transform scale-75 lg:scale-100 text-white fill-current">
 					<svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewbox="0 0 75.121 61.052">
 						<path id="icons8-twitter"
 							d="M75.063,12.844a30.83,30.83,0,0,1-8.858,2.43A15.451,15.451,0,0,0,72.984,6.75,30.947,30.947,0,0,1,63.2,10.485,15.418,15.418,0,0,0,36.937,24.542,43.765,43.765,0,0,1,5.17,8.441,15.445,15.445,0,0,0,9.94,29.019a15.4,15.4,0,0,1-6.984-1.932v.193A15.438,15.438,0,0,0,15.317,42.4a15.421,15.421,0,0,1-4.057.538,14.847,14.847,0,0,1-2.9-.28,15.447,15.447,0,0,0,14.4,10.709,30.9,30.9,0,0,1-19.14,6.595,30.3,30.3,0,0,1-3.671-.217A43.544,43.544,0,0,0,23.56,66.666c28.348,0,43.852-23.483,43.852-43.846,0-.667-.018-1.341-.04-2a31.325,31.325,0,0,0,7.692-7.98Z"
 							transform="translate(0.058 -5.614)"></path>
-
+					</svg>
+					
+				</div>
+				<div id="twitterLink" class="invisible absolute fixed bg-white w-11 h-11 left-3 bottom-3 rounded-full flex items-center justify-center cursor-pointer" >
+					<svg xmlns="http://www.w3.org/2000/svg" width="18.256" height="18.256" viewBox="0 0 18.256 18.256">
+						<g id="Group_7" data-name="Group 7" transform="translate(5.363 5.325)">
+							<path id="Path_10" data-name="Path 10" d="M14.581,7.05,7.05,14.581"
+								transform="translate(-7.05 -7.012)" fill="none" stroke="#0D1117"
+								stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+							<path id="Path_11" data-name="Path 11" d="M10,7l5.287.037.038,5.287"
+								transform="translate(-7.756 -7)" fill="none" stroke="#0D1117" stroke-linecap="round"
+								stroke-linejoin="round" stroke-width="1.5"></path>
+						</g>
+						<path id="Path_12" data-name="Path 12" d="M0,0H18.256V18.256H0Z" fill="none"></path>
 					</svg>
 				</div>
 			</div>
@@ -333,7 +409,7 @@
 			<div class="bg-cover border-4 border-background bg-fofu1 dark:bg-none dark:border-white min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white dark:bg-background-dark rounded-lg flex items-center window row-span-2 hover:shadow-xl"
 				style="width:276px;">
 				<div>
-					<img class="rounded-lg w-3/5 lg:w-1/2" src="img/4.png" style="margin:auto">
+					<img class="rounded-lg w-3/5 lg:w-1/2 " src="img/4.png" style="margin:auto">
 				</div>
 			</div>
 
@@ -350,7 +426,7 @@
 				</div>
 			</div> -->
 
-			<div class="invisible lg:visible p-6 dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-steam window hover:shadow-xl"
+			<div class="invisible relative lg:visible p-6 dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white min-h-sm lg:min-h-lg rounded-lg flex items-center justify-center bg-steam window hover:shadow-xl"
 				style="width:276px;height: 276px;">
 				<div class="flex transform scale-35 items-center justify-center text-white fill-current">
 					<svg width="256px" height="259px" viewbox="0 0 256 259" xmlns="http://www.w3.org/2000/svg">
@@ -359,6 +435,19 @@
 								d="M127.778579,0 C60.4203546,0 5.24030561,52.412282 0,119.013983 L68.7236558,147.68805 C74.5451924,143.665561 81.5845466,141.322185 89.1497766,141.322185 C89.8324924,141.322185 90.5059824,141.340637 91.1702465,141.377541 L121.735621,96.668877 L121.735621,96.0415165 C121.735621,69.1388208 143.425688,47.2457835 170.088511,47.2457835 C196.751333,47.2457835 218.441401,69.1388208 218.441401,96.0415165 C218.441401,122.944212 196.751333,144.846475 170.088511,144.846475 C169.719475,144.846475 169.359666,144.83725 168.99063,144.828024 L125.398299,176.205276 C125.425977,176.786507 125.444428,177.367738 125.444428,177.939743 C125.444428,198.144443 109.160732,214.575753 89.1497766,214.575753 C71.5836817,214.575753 56.8868387,201.917832 53.5655182,185.163615 L4.40997549,164.654462 C19.6326942,218.967277 69.0834655,258.786219 127.778579,258.786219 C198.596511,258.786219 256,200.847629 256,129.393109 C256,57.9293643 198.596511,0 127.778579,0 Z M80.3519677,196.332478 L64.6033732,189.763644 C67.389592,195.63131 72.2239585,200.539484 78.6359521,203.233444 C92.4932392,209.064206 108.472481,202.430791 114.247888,188.435116 C117.043333,181.663313 117.061785,174.190342 114.294018,167.400086 C111.526251,160.609831 106.295171,155.31417 99.5879487,152.491048 C92.9176301,149.695603 85.7767911,149.797088 79.5031858,152.186594 L95.777656,158.976849 C105.999942,163.276114 110.834309,175.122157 106.571948,185.436702 C102.318812,195.751247 90.574254,200.631743 80.3519677,196.332478 Z M202.30901,96.0424391 C202.30901,78.1165345 187.85204,63.5211763 170.092201,63.5211763 C152.323137,63.5211763 137.866167,78.1165345 137.866167,96.0424391 C137.866167,113.968344 152.323137,128.554476 170.092201,128.554476 C187.85204,128.554476 202.30901,113.968344 202.30901,96.0424391 Z M145.938821,95.9870838 C145.938821,82.4988323 156.779242,71.5661525 170.138331,71.5661525 C183.506646,71.5661525 194.347066,82.4988323 194.347066,95.9870838 C194.347066,109.475335 183.506646,120.408015 170.138331,120.408015 C156.779242,120.408015 145.938821,109.475335 145.938821,95.9870838 Z">
 							</path>
 						</g>
+					</svg>
+				</div>
+				<div id="steamLink" class="invisible absolute mb-11 ml-6 fixed bg-white w-11 h-11 rounded-full flex items-center justify-center cursor-pointer" style="margin-left: -200px;margin-bottom: -200px; ">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18.256" height="18.256" viewBox="0 0 18.256 18.256">
+						<g id="Group_7" data-name="Group 7" transform="translate(5.363 5.325)">
+							<path id="Path_10" data-name="Path 10" d="M14.581,7.05,7.05,14.581"
+								transform="translate(-7.05 -7.012)" fill="none" stroke="#0D1117"
+								stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+							<path id="Path_11" data-name="Path 11" d="M10,7l5.287.037.038,5.287"
+								transform="translate(-7.756 -7)" fill="none" stroke="#0D1117" stroke-linecap="round"
+								stroke-linejoin="round" stroke-width="1.5"></path>
+						</g>
+						<path id="Path_12" data-name="Path 12" d="M0,0H18.256V18.256H0Z" fill="none"></path>
 					</svg>
 				</div>
 			</div>
