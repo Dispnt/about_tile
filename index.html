@@ -205,26 +205,84 @@
 	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
 
 	<script>
+		const animationInR = "animate__animated animate__fadeInRight animate__faster"
+		const animationOutR = " animate__animated animate__fadeOutRight animate__faster"
+		const animationInL = " animate__animated animate__fadeInLeft animate__faster"
+		const animationOutL = " animate__animated animate__fadeOutLeft animate__faster"
+		const allAnimation = animationOutL + animationInL + animationInR + animationOutR
+		const label_weigh = {"#allSelector":1, "#aboutSelector":2, "#furSelector":3, "#mediaSelector":4}
+		
 		var theme = 'light';
-		const animationInR = "animate__animated animate__fadeInRight animate__fast"
-		const animationOutR = "animate__animated animate__fadeOutRight animate__fast"
-		const animationInL = "animate__animated animate__fadeInLeft animate__fast"
-		const animationOutL = "animate__animated animate__fadeOutLeft animate__fast"
+		var current_selector = "#allSelector"
+		//如果目标比当前大，在右边：目前右移出，目标左移进
+		//如果目标比当前小，在左边：目前左移出，目标右移进 
 		$(function () {
 			//header Label
 			$("#allLabel").click(function(){ //AllLabel
 				$(".window").removeClass("blur")//remove all blur
 				
-				$("#aboutSelector").removeClass(animationInL).addClass(animationOutL) //remove →口 ，add 口→
-				$("#allSelector").removeClass('invisible '+ animationOutR).addClass(animationInR) //add 口←
+				if (label_weigh[current_selector]<label_weigh["#allSelector"]){ //current in Left
+					//impossible
+				}
+				else{ //current in Right
+					$(current_selector).removeClass(animationInL + animationInR).addClass(animationOutL) //←口
+					$("#allSelector").removeClass('invisible '+allAnimation).addClass(animationInR) //口←
+				}
+
+				current_selector = "#allSelector"
 			})
 
 			$("#aboutLabel").click(function(){
 				//blur
+				$(".window").removeClass("blur")
 				$(".window:not(#intro,#nightmode)").addClass("blur")
 
-				$("#allSelector").removeClass(animationInR).addClass(animationOutR) //remove 口← , add 口→
-				$("#aboutSelector").removeClass('invisible '+animationOutL).addClass(animationInL) //remove 口→，add →口
+				
+				if (label_weigh[current_selector]<label_weigh["#aboutSelector"]){ //current in Left
+					$(current_selector).removeClass(animationInR+animationInL).addClass(animationOutR) //口→
+					$("#aboutSelector").removeClass('invisible '+ allAnimation).addClass(animationInL) //→口
+				}
+				else{ //current in Right
+					$(current_selector).removeClass(animationInR+animationInL).addClass(animationOutL) //←口
+					$("#aboutSelector").removeClass('invisible '+allAnimation).addClass(animationInR) //口←
+				}
+				
+				current_selector = "#aboutSelector"
+			})
+
+			$("#furLabel").click(function(){
+				//blur
+				$(".window").removeClass("blur")
+				$(".window:not(.bg-fofu1,.bg-fofu2)").addClass("blur")
+				
+
+				if (label_weigh[current_selector]<label_weigh["#furSelector"]){ //current in Left
+					$(current_selector).removeClass(animationInR+animationInL).addClass(animationOutR) //口→
+					$("#furSelector").removeClass('invisible '+allAnimation).addClass(animationInL) //→口
+				}
+				else{//current in Right
+					$(current_selector).removeClass(animationInR+animationInL).addClass(animationOutL) //←口
+					$("#furSelector").removeClass('invisible '+allAnimation).addClass(animationInR) //口←
+				}
+				
+				current_selector = "#furSelector"
+			})
+
+			$("#mediaLabel").click(function(){
+				//blur
+				$(".window").removeClass("blur")
+				$(".window:not(#posts,.bg-steam,#twitter,#spotify)").addClass("blur")
+				
+
+				if (label_weigh[current_selector]<label_weigh["#mediaSelector"]){ //current in Left
+					$(current_selector).removeClass(animationInR+animationInL).addClass(animationOutR) //口→
+					$("#mediaSelector").removeClass('invisible '+ allAnimation).addClass(animationInL) //→口
+				}
+				else{//current in right
+					//impossible
+				}
+				
+				current_selector = "#mediaSelector"
 			})
 			
 
@@ -278,23 +336,23 @@
 			</h1>
 		</div>
 		<div class="ffhyrg flex ">
-			<div id="allSelector" class=" absolute bg-white dark:bg-black" ></div>
+			<div id="allSelector" class="headerSelector absolute bg-white dark:bg-black" ></div>
 			<div id="allLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">All</div>
 
-			<div id="aboutSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="aboutSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
 			<div id="aboutLabel"  class="cursor-pointer menu font-sans font-normal dark:text-white">About</div>
 
-			<div id="furSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="furSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
 			<div id="furLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Fur</div>
 
-			<div id="mediaSelector" class="invisible absolute bg-white dark:bg-black" ></div>
+			<div id="mediaSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
 			<div id="mediaLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Media</div>
 		</div>
 		<nav>
 			<ul class="list-reset hidden lg:flex lg:items-center">
 				<li class="md:ml-4">
 					<a
-						class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Back</a>
+						href="baidu.com" class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Back to previous version site</a>
 				</li>
 			</ul>
 		</nav>
@@ -306,8 +364,11 @@
 				id="intro" class="p-6 w-full col-span-2 max-w-2sm lg:max-w-2lg min-h-sm lg:min-h-lg bg-white dark:bg-background-dark dark:border-solid border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
 				<div>
 					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Intro</div>
-					<p style="z-index:1" class="lFodq">Woshishabi,WoshishabiWoshishabiWoshishabiWoshishabiWoshishabi
-						WoshishabiWoshishabiWoshishabi
+					<p style="z-index:1" class="font-sans">Fofu, A semi-intellectual cynic in Shanghai<br/>
+						犬儒的锅盖生活<br/>
+						<br/>
+						The site is still under construction<br/>
+						<a href="http://baidu.com">**Click here to back to previous version**</a>
 					</p>
 				</div>
 
@@ -406,7 +467,7 @@
 				</div>
 			</div>
 
-			<div class="bg-cover border-4 border-background bg-fofu1 dark:bg-none dark:border-white min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white dark:bg-background-dark rounded-lg flex items-center window row-span-2 hover:shadow-xl"
+			<div class="bg-cover border-4 border-background bg-fofu1 window dark:bg-none dark:border-white min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg bg-white dark:bg-background-dark rounded-lg flex items-center window row-span-2 hover:shadow-xl"
 				style="width:276px;">
 				<div>
 					<img class="rounded-lg w-3/5 lg:w-1/2 " src="img/4.png" style="margin:auto">
@@ -414,7 +475,7 @@
 			</div>
 
 			<div
-				class="bg-cover border-4 border-background bg-fofu2 dark:bg-none border-4 dark:border-white min-h-sm lg:min-h-lg w-full max-w-full bg-white dark:bg-background-dark rounded-lg flex items-center lg:col-span-2 window hover:shadow-xl">
+				class="bg-cover border-4 border-background bg-fofu2 window dark:bg-none border-4 dark:border-white min-h-sm lg:min-h-lg w-full max-w-full bg-white dark:bg-background-dark rounded-lg flex items-center lg:col-span-2 window hover:shadow-xl">
 				<img class="rounded-lg w-2/5 lg:w-1/4" src="img/3.png" style="margin:auto">
 			</div>
 
