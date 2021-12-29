@@ -1,0 +1,51 @@
+#allSelector {
+    height: 32px;
+    left: 14px; 
+    width: 48px;
+    border-radius: 23px;
+    z-index: -1;
+}
+
+#aboutSelector {
+    height: 32px;
+    left: 72px;
+    width: 74px;
+    border-radius: 23px;
+    z-index: -1;
+}
+
+#furSelector {
+    height: 32px;
+    left: 157px;
+    width: 48px;
+    border-radius: 23px;
+    z-index: -1;
+}
+
+#mediaSelector {
+    height: 32px;
+    left: 218px;
+    width: 74px;
+    border-radius: 23px;
+    z-index: -1;
+}
+
+.menu {
+    transition: opacity 0.3s ease 0s;
+}
+
+.window {
+    transition: 1s filter linear,box-shadow 1s;
+}
+
+.spotify {
+    box-shadow: transparent 0px 0px 0px 2px inset;
+}
+
+
+
+
+.NightModeToggle {
+    box-shadow: transparent 0px 0px 0px 2px inset;
+}
+

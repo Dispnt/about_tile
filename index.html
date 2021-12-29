@@ -7,201 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="./tailwind.css">
 	<meta name="viewport"
 		content="width=device-width, initial-scale=0.1, maximum-scale=1.0, minimum-scale=0.7, user-scalable=no">
-	<style>
-		.ffhyrg {
-			position: relative;
-			background: rgba(0, 0, 0, 0.04);
-			border-radius: 23px;
-			transform: translateX(0px);
-			font-size: 20px;
-			padding: 10px;
-		}
-
-		/* .ffhyrg {
-			position: relative;
-			background: rgba(0, 0, 0, 0.04);
-			border-radius: 23px;
-			transform: translateX(0px);
-			font-size: 14px;
-			padding: 5px;
-		} */
-
-		#allSelector {
-			height: 34px;
-			left: 14px; 
-			width: 48px;
-			border-radius: 16px;
-			z-index: -1;
-		}
-
-		#aboutSelector {
-			height: 34px;
-			left: 72px;
-			width: 74px;
-			border-radius: 16px;
-			z-index: -1;
-		}
-
-		#furSelector {
-			height: 34px;
-			left: 157px;
-			width: 48px;
-			border-radius: 16px;
-			z-index: -1;
-		}
-		
-		#mediaSelector {
-			height: 34px;
-			left: 218px;
-			width: 74px;
-			border-radius: 16px;
-			z-index: -1;
-		}
-
-		/* .bgltbu {
-			position: absolute;
-			height: 32px;
-			width: 49px;
-			border-radius: 16px;
-			background: rgb(255, 255, 255);
-			z-index: -1;
-		} */
-
-		.menu {
-			border-radius: 50px;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			height: 32px;
-			padding: 0px 16px;
-			transition: opacity 0.3s ease 0s;
-			color: rgb(13, 17, 23);
-		}
-
-		.window {
-			transition: 1s filter linear,box-shadow 1s;
-		}
-
-		.spotify {
-			height: 100%;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			-webkit-box-pack: justify;
-			justify-content: space-between;
-			padding: 36px 40px;
-			box-shadow: transparent 0px 0px 0px 2px inset;
-		}
-
-		.SpotifyLogo {
-			width: 54px;
-			height: 54px;
-		}
-
-
-		.PlayingStatus {
-			font-size: 14px;
-			/* font-family: "Silka Medium"; */
-			line-height: 24px;
-			letter-spacing: 0.25px;
-			font-weight: 400;
-			color: rgb(110, 210, 183);
-		}
-
-		.PlayingIcon {
-			height: 20px;
-			margin-right: 4px;
-			position: relative;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-		}
-
-		.PlayingIconPart {
-			width: 3px;
-			height: 3px;
-			margin-right: 3px;
-			background: rgb(110, 210, 183);
-			border-radius: 1.5px;
-		}
-
-		/* 			.rhhZB {
-				font-family: "Moranga Bold";
-				line-height: 32px;
-				color: rgb(13, 17, 23);
-			} */
-
-		.gagHfL {
-			height: 100%;
-			width: 100%;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			-webkit-box-pack: center;
-			justify-content: center;
-			border-radius: 32px;
-			background: rgb(152, 208, 255);
-			box-shadow: transparent 0px 0px 0px 2px inset;
-		}
-
-		.gwskVc {
-			height: 101%;
-			width: 100%;
-			object-fit: cover;
-		}
-
-		.GUaRk {
-			position: absolute;
-			left: 0px;
-			top: 0px;
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-		}
-
-		.cGyDym {
-			width: 36px;
-			height: 36px;
-			border-radius: 18px;
-			position: absolute;
-			bottom: 14px;
-			left: 14px;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			overflow: hidden;
-			transition: box-shadow 0.2s ease-out 0s;
-			background: rgb(255, 255, 255);
-			border: none;
-		}
-
-		.krLxJa {
-			height: 48px;
-			width: 90px;
-			border-radius: 40px;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			position: relative;
-			background: rgb(240, 242, 248);
-			box-shadow: transparent 0px 0px 0px 2px inset;
-		}
-
-		.ebpAiN {
-			width: 36px;
-			height: 36px;
-			border-radius: 30px;
-			background: rgb(13, 17, 23);
-			position: absolute;
-			display: flex;
-			-webkit-box-align: center;
-			align-items: center;
-			-webkit-box-pack: center;
-			justify-content: center;
-		}
-
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="./main.css">
 	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
 
 	<script>
@@ -321,10 +127,13 @@
 			link_btn(".bg-twitter","#twitterLink","https://twitter.com/Dispnt")
 			link_btn(".bg-steam","#steamLink","http://steam.dispnt.com/")
 			
+			$("#posts").click(function(){
+				window.open("http://fofu.dispnt.com/old", '_blank');
+			})
 			
 		});
 	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="font-sans font-semibold bg-background dark:bg-background-dark dark:text-white select-none">
@@ -335,24 +144,24 @@
 				<a class="no-underline font-serif text-gray-darkest hover:text-black text-4xl">foofu</a>
 			</h1>
 		</div>
-		<div class="ffhyrg flex ">
+		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu" style="transform: translateX(0px);">
 			<div id="allSelector" class="headerSelector absolute bg-white dark:bg-black" ></div>
-			<div id="allLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">All</div>
+			<div id="allLabel" class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">All</div>
 
 			<div id="aboutSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
-			<div id="aboutLabel"  class="cursor-pointer menu font-sans font-normal dark:text-white">About</div>
+			<div id="aboutLabel"  class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">About</div>
 
 			<div id="furSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
-			<div id="furLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Fur</div>
+			<div id="furLabel" class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">Fur</div>
 
 			<div id="mediaSelector" class="headerSelector invisible absolute bg-white dark:bg-black" ></div>
-			<div id="mediaLabel" class="cursor-pointer menu font-sans font-normal dark:text-white">Media</div>
+			<div id="mediaLabel" class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">Media</div>
 		</div>
 		<nav>
 			<ul class="list-reset hidden lg:flex lg:items-center">
 				<li class="md:ml-4">
 					<a
-						href="baidu.com" class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Back to previous version site</a>
+						href="http://fofu.dispnt.com/old" class="block py-2 text-grey-darkest no-underline md:border-none md:p-0 hover:underline">Back to previous version site</a>
 				</li>
 			</ul>
 		</nav>
@@ -367,8 +176,8 @@
 					<p style="z-index:1" class="font-sans">Fofu, A semi-intellectual cynic in Shanghai<br/>
 						犬儒的锅盖生活<br/>
 						<br/>
-						The site is still under construction<br/>
-						<a href="http://baidu.com">**Click here to back to previous version**</a>
+						
+						<a href="http://fofu.dispnt.com/old"><b>**Click here to back to previous version **</b></a>
 					</p>
 				</div>
 
@@ -376,8 +185,8 @@
 
 			<div
 				id="nightmode" class="p-6 w-full justify-center NightModeWindow bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg flex items-center window hover:shadow-xl">
-				<div class="NightModeToggle krLxJa cursor-pointer">
-					<div id="moonToggle" style="left: 6px; transform-origin: 75% 50% 0px;" class="ebpAiN "><svg
+				<div class="NightModeToggle h-12 w-23 rounded-lg relative flex items-center bg-background-darkmode cursor-pointer">
+					<div id="moonToggle" style="left: 6px; transform-origin: 75% 50% 0px;" class="w-9 h-9 rounded-full flex absolute items-center justify-center bg-darkmode"><svg
 							xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19"
 							class="MoonSVG__SVG-jbpqn0-0 eweehR"
 							transform-origin="8.477352142333984px 9.486003313912079px"
@@ -388,7 +197,7 @@
 						</svg>
 					</div>
 
-					<div id="sunToggle" style="transform-origin: 50% 50% 0px; right: 6px;" class="ebpAiN invisible"><svg
+					<div id="sunToggle" style="transform-origin: 50% 50% 0px; right: 6px;" class="w-9 h-9 rounded-full flex absolute items-center justify-center bg-darkmode invisible"><svg
 							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 							class="jOrPHu" transform-origin="12px 11.999148885835893px"
 							style="transform: none; transform-origin: 12px 11.9991px;">
@@ -406,33 +215,34 @@
 
 			<div
 				id="posts" class=" p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg flex items-center window hover:shadow-xl">
-				<div>
-					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Posts</div>
-				</div>
 				<!-- <div>
-					<div class="absolute  left-0 top-0 text-xl font-medium text-black font-serif font-extrabold">Weibo Content</div>
-					<div class="grid grid-cols-1 divide-y divide-yellow-500">
-						<div>1​​​​</div>
-						<div>2</div>
-						<div>3</div>
-					  </div>
+					<div class="text-xl font-medium text-black font-serif font-extrabold dark:text-white">Posts</div>
 				</div> -->
+				<div>
+					<!-- <div class="relative left-0 top-0 text-xl font-medium text-black font-serif font-extrabold">Weibo Content</div> -->
+
+					<div class="grid grid-cols-1 divide-y divide-yellow-500 ">
+						<div>still under construction<br/></div>
+						<div>网站施工中</div>
+						<div><a href="http://fofu.dispnt.com/old"><b>点此回旧版</b></a></div>
+					  </div>
+				</div>
 
 			</div>
 
 
 			<div
 				id="spotify" class=" w-full col-span-2 lg:col-span-1 min-h-sm lg:min-h-lg lg:max-w-lg bg-white dark:bg-background-dark dark:border-solid  border-4 border-transparent dark:border-white rounded-lg items-center window  hover:shadow-xl">
-				<div class="spotify rounded-lg ">
-					<img src="./img/spotify.svg" class="SpotifyLogo" style="margin-bottom: 18px;">
+				<div class="spotify py-9 px-10 h-full w-full flex flex-col justify-between rounded-lg ">
+					<img src="./img/spotify.svg" class="w-14 h-14" style="margin-bottom: 18px;">
 					<div class=" SzFbN">
 						<div class="flex align-center">
-							<div class="PlayingIcon">
-								<div style="animation:playing 0.85s infinite ease" class="PlayingIconPart"></div>
-								<div style="animation:playing 1.26s infinite ease" class="PlayingIconPart"></div>
-								<div style="animation:playing 0.62s infinite ease" class="PlayingIconPart"></div>
+							<div class="h-5 mr-1 relative flex items-center">
+								<div style="border-radius: 1.5px;background: rgb(110, 210, 183);animation:playing 0.85s infinite ease" class="mr-1 w-0.25 h-0.25 bg-spotify"></div>
+								<div style="border-radius: 1.5px;background: rgb(110, 210, 183);animation:playing 1.26s infinite ease" class="mr-1 w-0.25 h-0.25 bg-spotify" ></div>
+								<div style="border-radius: 1.5px;background: rgb(110, 210, 183);animation:playing 0.62s infinite ease" class="mr-1 w-0.25 h-0.25 bg-spotify"></div>
 							</div>
-							<p color="#6ed2b7" class="PlayingStatus font-bold">Offline. Last played</p>
+							<p color="#6ed2b7" class="text-sm leading-6 font-normal text-spotify leading-6" >Offline. Last played</p> 
 						</div>
 						<h2 class="text-xl rhhZB caOpuW font-serif font-black text-xl dark:text-white">在世界的盡頭大聳地說我恨你
 						</h2>
