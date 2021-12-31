@@ -39,7 +39,9 @@ module.exports = {
         '2lg': '580px',
         'lg':  '280px',
         '2sm': '456px',
-        'sm':  '164px'
+        'sm':  '164px',
+        '180px':'180px',
+        '90px' : '90px'
        },
        spacing: {
         '85px': '85px',
