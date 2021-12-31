@@ -11,6 +11,7 @@
 	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.js"></script>
 
 	<script>
+		
 		const animationInR = "animate__animated animate__fadeInRight animate__faster"
 		const animationOutR = " animate__animated animate__fadeOutRight animate__faster"
 		const animationInL = " animate__animated animate__fadeInLeft animate__faster"
@@ -130,13 +131,17 @@
 			$(".bg-fofu1").click(function () {
 				window.open("https://www.dispnt.com/index.php/archives/50/", '_blank');
 			})
+			
 
+			$(".bg-fofu2").click(function () {
+				window.open("https://fofu.dispnt.com/oc/?fofu2", '_blank');
+			})
 
 			//posts number
 			if($(document).width() <= 1006){ //show only 2 post if sml screen
 				console.log("sml")
-				let all_posts = $('.post-content').children() //ap[0],ap[1],ap[2]...ap[9],ap[10],ap[11]
-				let post_number = $('.post-content').children().length // 12
+				let all_posts = $('.post-content').children()
+				let post_number = $('.post-content').children().length 
 				console.log(post_number-1)
 				for(let i=post_number-1;i>=2;i--){
 					$(".post:eq("+i+")").hide()
@@ -151,6 +156,9 @@
 				}
 				}
 			}
+
+
+			
 
 		});
 	</script>
@@ -167,23 +175,23 @@
 				<a class="no-underline font-serif text-gray-darkest hover:text-black text-4xl">foofu</a>
 			</h1>
 		</div>
-		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu" style="transform: translateX(0px);">
-			<div id="allSelector" class="headerSelector absolute bg-white dark:bg-black"></div>
+		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu dark:bg-gray-800" style="transform: translateX(0px);">
+			<div id="allSelector" class="headerSelector absolute bg-white dark:bg-gray-500"></div>
 			<div id="allLabel"
 				class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">
 				All</div>
 
-			<div id="aboutSelector" class="headerSelector invisible absolute bg-white dark:bg-black"></div>
+			<div id="aboutSelector" class="headerSelector invisible absolute bg-white dark:bg-gray-500"></div>
 			<div id="aboutLabel"
 				class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">
 				About</div>
 
-			<div id="furSelector" class="headerSelector invisible absolute bg-white dark:bg-black"></div>
+			<div id="furSelector" class="headerSelector invisible absolute bg-white dark:bg-gray-500"></div>
 			<div id="furLabel"
 				class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">
 				Fur</div>
 
-			<div id="mediaSelector" class="headerSelector invisible absolute bg-white dark:bg-black"></div>
+			<div id="mediaSelector" class="headerSelector invisible absolute bg-white dark:bg-gray-500"></div>
 			<div id="mediaLabel"
 				class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">
 				Media</div>
