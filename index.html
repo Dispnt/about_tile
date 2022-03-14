@@ -12,6 +12,8 @@
 
 	<script>
 		
+
+		//selector
 		const animationInR = "animate__animated animate__fadeInRight animate__faster"
 		const animationOutR = " animate__animated animate__fadeOutRight animate__faster"
 		const animationInL = " animate__animated animate__fadeInLeft animate__faster"
@@ -24,7 +26,7 @@
 		//如果目标比当前大，在右边：目前右移出，目标左移进
 		//如果目标比当前小，在左边：目前左移出，目标右移进 
 		$(function () {
-			//header Label
+			// 1.header Label
 			$("#allLabel").click(function () { //AllLabel
 				$(".window").removeClass("blur")//remove all blur
 
@@ -93,7 +95,7 @@
 			})
 
 
-			//Night Mode toggle & animation
+			// 2.Night Mode toggle & animation
 			$('.NightModeWindow').click(function () {
 				if (theme == 'light') {
 					$("html").addClass('dark')
@@ -124,7 +126,8 @@
 					$(LinkBtn).removeClass(animationInL).addClass(animationOutL);//btn out anim
 				});
 			}
-			//twitter Link Btn animation
+
+			// 3.twitter Link Btn animation
 			link_btn(".bg-twitter", "#twitterLink", "https://twitter.com/Dispnt")
 			link_btn(".bg-steam", "#steamLink", "http://steam.dispnt.com/")
 
@@ -137,7 +140,7 @@
 				window.open("https://fofu.dispnt.com/oc/?fofu2", '_blank');
 			})
 
-			//posts number
+			// 4.posts number
 			if($(document).width() <= 1006){ //show only 2 post if sml screen
 				console.log("sml")
 				let all_posts = $('.post-content').children()
@@ -157,10 +160,15 @@
 				}
 			}
 
-
-			
+			// 5.emoji
+			// random emoji
+			const emoji_dict = ['😀','😃','😄','😁','😆','😅','😂','🤣','😊','😚','😙','😗','😘','😍','😌','😉','🙃','🙂','😇','😋','😜','😝','😛','🤑','🤗','🤓','😎','🤡','🤠','😖','😣','🙁','😕','😟','😔','😞','😒','😏','😫','😩','😤','😠','😡','😶','😐','😑','😯','😦','😥','😢','😨','😳','😵','😲','😮','😦','🤤','😭','😪','😴','🙄','🤔','😬','🤥','🤐','👺','👹','👿','😈','🤕','🤒','😷','👻','🎃','😺','😸','😹','🙏','👏','🙌','👐','😾','😿','🙀','😽','😼','😻','❤']
+			$(".emoji").text(emoji_dict[Math.floor(Math.random() * (emoji_dict.length-1 - 0 + 1) )]);
 
 		});
+
+		
+				
 	</script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
@@ -171,8 +179,10 @@
 	<header
 		class="p-4 h-36 px-10 pb-0 flex-col mb-12 lg:mb-0 lg:flex-row lg:items-center lg:justify-between flex justify-between flex items-center">
 		<div class="my-10 lg:mb-4 flex items-center justify-between">
-			<h1 class="leading-none text-2xl text-gray-darkest dark:text-white">
-				<a class="no-underline font-serif text-gray-darkest hover:text-black text-4xl">foofu</a>
+			<h1 class="leading-none font-serif text-4xl text-gray-darkest dark:text-white">
+				<a class="emoji"></a>
+				<a>fofu</a>
+				<a class="emoji"></a>
 			</h1>
 		</div>
 		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu dark:bg-gray-800" style="transform: translateX(0px);">
