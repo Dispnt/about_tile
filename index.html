@@ -140,12 +140,37 @@
 				window.open("https://fofu.dispnt.com/oc/?fofu2", '_blank');
 			})
 
-			// 4.posts number
+			// 4.posts fetch
+			const monthes = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+            $.get("https://www.dispnt.com/index.php/feed/", function (data) {
+			$(data).find("item").each(function () { 
+				var el = $(this);
+				let month = monthes.indexOf(el.find("pubDate").text().substr(8,3)) + 1
+				if(month<10){
+					month = '0' + month
+				}
+				let year = el.find("pubDate").text().substr(14,2)
+
+				htmlcontent = `
+				<div class="post">
+					<div>
+						<a href="`+ el.find("link").text() +`" class="truncate inline-block max-w-90px lg:max-w-180px">`+ el.find("title").text() +`
+						<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">`+ month + "." + year +`</a>
+						</a>
+						
+					</div>
+				</div>
+			`
+				$(".post-content").append(htmlcontent)
+				
+			});
+
+			// posts number
 			if($(document).width() <= 1006){ //show only 2 post if sml screen
 				console.log("sml")
 				let all_posts = $('.post-content').children()
 				let post_number = $('.post-content').children().length 
-				console.log(post_number-1)
+				console.log(all_posts)
 				for(let i=post_number-1;i>=2;i--){
 					$(".post:eq("+i+")").hide()
 				}
@@ -159,20 +184,21 @@
 				}
 				}
 			}
+		});
 
-			// 5.emoji
-			// random emoji
+			
+
+			// 6.random emoji
 			const emoji_dict = ['😀','😃','😄','😁','😆','😅','😂','🤣','😊','😚','😙','😗','😘','😍','😌','😉','🙃','🙂','😇','😋','😜','😝','😛','🤑','🤗','🤓','😎','🤡','🤠','😖','😣','🙁','😕','😟','😔','😞','😒','😏','😫','😩','😤','😠','😡','😶','😐','😑','😯','😦','😥','😢','😨','😳','😵','😲','😮','😦','🤤','😭','😪','😴','🙄','🤔','😬','🤥','🤐','👺','👹','👿','😈','🤕','🤒','😷','👻','🎃','😺','😸','😹','🙏','👏','🙌','👐','😾','😿','🙀','😽','😼','😻','❤']
 			$(".emoji").text(emoji_dict[Math.floor(Math.random() * (emoji_dict.length-1 - 0 + 1) )]);
 
+			
 		});
 
 		
 				
 	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-		integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="font-sans font-semibold bg-background dark:bg-background-dark dark:text-white select-none">
@@ -288,25 +314,7 @@
 							<div class="post">
 								<div>
 									<a href="https://www.dispnt.com/keer/" class="truncate inline-block max-w-90px lg:max-w-180px">科二简答背题
-									<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">20.09</a>
-									</a>
-									
-								</div>
-							</div>
-
-							<div class="post">
-								<div>
-									<a href="https://www.dispnt.com/index.php/archives/57/" class="truncate inline-block max-w-90px lg:max-w-180px">用GPT-2模型生成回复在树莓派上跑一个qq机器人
-									<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">20.11</a>
-									</a>
-									
-								</div>
-							</div>
-
-							<div class="post">
-								<div>
-									<a href="https://www.dispnt.com/index.php/archives/49/" class="truncate inline-block max-w-90px lg:max-w-180px">在自我介绍页路上踩过的坑,flask,uwsgi,nginx,ssl绕备案和证书续期
-									<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">20.01</a>
+									<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">09.20</a>
 									</a>
 									
 								</div>
