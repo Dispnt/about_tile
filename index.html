@@ -11,7 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script>
-		
+
 
 		//selector
 		const animationInR = "animate__animated animate__fadeInRight animate__faster"
@@ -134,71 +134,74 @@
 			$(".bg-fofu1").click(function () {
 				window.open("https://www.dispnt.com/index.php/archives/50/", '_blank');
 			})
-			
+
 
 			$(".bg-fofu2").click(function () {
 				window.open("https://fofu.dispnt.com/oc/?fofu2", '_blank');
 			})
 
 			// 4.posts fetch
-			const monthes = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-            $.get("https://www.dispnt.com/index.php/feed/", function (data) {
-			$(data).find("item").each(function () { 
-				var el = $(this);
-				let month = monthes.indexOf(el.find("pubDate").text().substr(8,3)) + 1
-				if(month<10){
-					month = '0' + month
-				}
-				let year = el.find("pubDate").text().substr(14,2)
+			const monthes = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+			$.get("https://www.dispnt.com/index.php/feed/", function (data) {
+				$(data).find("item").each(function () {
+					var el = $(this);
+					let month = monthes.indexOf(el.find("pubDate").text().substr(8, 3)) + 1
+					if (month < 10) {
+						month = '0' + month
+					}
+					let year = el.find("pubDate").text().substr(14, 2)
 
-				htmlcontent = `
+					htmlcontent = `
 				<div class="post">
 					<div>
-						<a href="`+ el.find("link").text() +`" class="truncate inline-block max-w-90px lg:max-w-180px">`+ el.find("title").text() +`
-						<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">`+ month + "." + year +`</a>
+						<a href="`+ el.find("link").text() + `" class="truncate inline-block max-w-90px lg:max-w-180px">` + el.find("title").text() + `
+						<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">`+ month + "." + year + `</a>
 						</a>
 						
 					</div>
 				</div>
 			`
-				$(".post-content").append(htmlcontent)
-				
+					$(".post-content").append(htmlcontent)
+
+				});
+
+				// posts number
+				if ($(document).width() > 1006) { //show only 2 post if sml screen
+
+					let all_posts = $('.post-content').children()
+					let post_number = $('.post-content').children().length
+					if (post_number > 12) { //show only 12 posts
+						for (let i = post_number - 1; i >= 12; i--) {
+							$(".post:eq(" + i + ")").hide()
+						}
+					}
+
+				}
+				else {
+					console.log("sml")
+					let all_posts = $('.post-content').children()
+					let post_number = $('.post-content').children().length
+					console.log(all_posts)
+					for (let i = post_number - 1; i >= 2; i--) {
+						$(".post:eq(" + i + ")").hide()
+					}
+				}
 			});
 
-			// posts number
-			if($(document).width() <= 1006){ //show only 2 post if sml screen
-				console.log("sml")
-				let all_posts = $('.post-content').children()
-				let post_number = $('.post-content').children().length 
-				console.log(all_posts)
-				for(let i=post_number-1;i>=2;i--){
-					$(".post:eq("+i+")").hide()
-				}
-			}
-			else{
-				let all_posts = $('.post-content').children()
-				let post_number = $('.post-content').children().length
-				if(post_number>12){ //show only 12 posts
-					for(let i=post_number-1;i>=12;i--){
-					$(".post:eq("+i+")").hide()
-				}
-				}
-			}
-		});
 
-			
 
 			// 6.random emoji
-			const emoji_dict = ['😀','😃','😄','😁','😆','😅','😂','🤣','😊','😚','😙','😗','😘','😍','😌','😉','🙃','🙂','😇','😋','😜','😝','😛','🤑','🤗','🤓','😎','🤡','🤠','😖','😣','🙁','😕','😟','😔','😞','😒','😏','😫','😩','😤','😠','😡','😶','😐','😑','😯','😦','😥','😢','😨','😳','😵','😲','😮','😦','🤤','😭','😪','😴','🙄','🤔','😬','🤥','🤐','👺','👹','👿','😈','🤕','🤒','😷','👻','🎃','😺','😸','😹','🙏','👏','🙌','👐','😾','😿','🙀','😽','😼','😻','❤']
-			$(".emoji").text(emoji_dict[Math.floor(Math.random() * (emoji_dict.length-1 - 0 + 1) )]);
+			const emoji_dict = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😊', '😚', '😙', '😗', '😘', '😍', '😌', '😉', '🙃', '🙂', '😇', '😋', '😜', '😝', '😛', '🤑', '🤗', '🤓', '😎', '🤡', '🤠', '😖', '😣', '🙁', '😕', '😟', '😔', '😞', '😒', '😏', '😫', '😩', '😤', '😠', '😡', '😶', '😐', '😑', '😯', '😦', '😥', '😢', '😨', '😳', '😵', '😲', '😮', '😦', '🤤', '😭', '😪', '😴', '🙄', '🤔', '😬', '🤥', '🤐', '👺', '👹', '👿', '😈', '🤕', '🤒', '😷', '👻', '🎃', '😺', '😸', '😹', '🙏', '👏', '🙌', '👐', '😾', '😿', '🙀', '😽', '😼', '😻', '❤']
+			$(".emoji").text(emoji_dict[Math.floor(Math.random() * (emoji_dict.length - 1 - 0 + 1))]);
 
-			
+
 		});
 
-		
-				
+
+
 	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="font-sans font-semibold bg-background dark:bg-background-dark dark:text-white select-none">
@@ -211,7 +214,8 @@
 				<a class="emoji"></a>
 			</h1>
 		</div>
-		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu dark:bg-gray-800" style="transform: translateX(0px);">
+		<div class="relative rounded-md flex p-2.5 text-xl bg-background-menu dark:bg-gray-800"
+			style="transform: translateX(0px);">
 			<div id="allSelector" class="headerSelector absolute bg-white dark:bg-gray-500"></div>
 			<div id="allLabel"
 				class="cursor-pointer flex items-center py-0 px-4 text-menu menu font-sans font-normal dark:text-white">
@@ -253,13 +257,13 @@
 						<a class="text-2xl">fofu</a>
 						<a class="">，很高兴遇见你！</a>
 					</div>
-					
+
 					<p style="z-index:1" class="font-sans ">
-						是个教育工作者,全栈工程师(假的)<br />擅长睡觉、愤愤不平<br />
+						是个小狐狸<br />擅长睡觉、愤愤不平<br />
 						<br />
 						<a class="text-2xl">fofu</a>, A semi-intellectual cynic in Shanghai<br />
-						
-						
+
+
 						<a href="http://fofu.dispnt.com/old"><b>**Click here to back to previous old site **</b></a>
 					</p>
 				</div>
@@ -300,34 +304,47 @@
 			</div>
 
 			<div id="posts"
-				class="relative p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 bg-white border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg flex  window hover:shadow-xl">
-
-				<div
-					class="absolute lg:top-12 left-4 lg:left-auto text-2xl font-medium text-black font-serif font-extrabold dark:text-white">
-					Posts</div>
-				<div class="absolute top-16 lg:top-24 -mt-2 lg:mt-auto left-4 w-5/6 ">
+				class="relative p-6 w-full min-h-sm lg:min-h-lg max-w-sm lg:max-w-lg lg:row-span-2 lg:bg-white bg-qq border-4 border-transparent dark:bg-background-dark dark:border-white rounded-lg hover:shadow-xl window">
+				<div class="hidden lg:flex">
+					<div
+						class="absolute lg:top-12 lg:left-4 lg:left-auto text-2xl font-medium text-black font-serif font-extrabold dark:text-white">
+						Posts
+					</div>
+					<div class="absolute top-16 lg:top-24 -mt-2 lg:mt-auto left-4 w-5/6 ">
 						<div class="grid grid-cols-1 divide-y divide-yellow-500 lg:text-lg block post-content">
-							<!-- <div class="post">
-								<a class="truncate inline-block max-w-90px lg:max-w-180px">这是新网站 </a>
-								<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">22.01</a>
-							</div> -->
 							<div class="post">
 								<div>
-									<a href="https://www.dispnt.com/keer/" class="truncate inline-block max-w-90px lg:max-w-180px">科二简答背题
-									<a class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">09.20</a>
+									<a href="https://www.dispnt.com/keer/"
+										class="truncate inline-block max-w-90px lg:max-w-180px">科二简答背题
+										<a
+											class="float-right align-bottom text-gray-400 text-sm mt-0.5 lg:mt-1">09.20</a>
 									</a>
-									
+
 								</div>
 							</div>
 
 
 						</div>
-						<div class="absolute lg:left-24 left-12  text-lg" >
+						<div class="absolute lg:left-24 left-12  text-lg">
 							<a href="javascript:" onclick="alert('还没有');" class="underline decoration-indigo-500">
 								More
 							</a>
 						</div>
-						
+
+					</div>
+				</div>
+
+				<div class="flex pt-6 lg:hidden transform scale-75 text-white fill-current items-center justify-center ">
+
+
+
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 448 512">
+						<path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path>
+					</svg>
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 75.121 61.052">
+						<path id="icons8-twitter" d="M75.063,12.844a30.83,30.83,0,0,1-8.858,2.43A15.451,15.451,0,0,0,72.984,6.75,30.947,30.947,0,0,1,63.2,10.485,15.418,15.418,0,0,0,36.937,24.542,43.765,43.765,0,0,1,5.17,8.441,15.445,15.445,0,0,0,9.94,29.019a15.4,15.4,0,0,1-6.984-1.932v.193A15.438,15.438,0,0,0,15.317,42.4a15.421,15.421,0,0,1-4.057.538,14.847,14.847,0,0,1-2.9-.28,15.447,15.447,0,0,0,14.4,10.709,30.9,30.9,0,0,1-19.14,6.595,30.3,30.3,0,0,1-3.671-.217A43.544,43.544,0,0,0,23.56,66.666c28.348,0,43.852-23.483,43.852-43.846,0-.667-.018-1.341-.04-2a31.325,31.325,0,0,0,7.692-7.98Z" transform="translate(0.058 -5.614)"></path>
+					</svg> -->
 				</div>
 
 			</div>
