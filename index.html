@@ -110,6 +110,7 @@
 				}
 			})
 			function link_btn(windowObj, LinkBtn, LinkURL) {
+				
 				$(windowObj).hover(function () { // cursor on window
 					$(LinkBtn).removeClass('invisible ' + animationOutL).addClass(animationInL); //btn in anim
 					$(LinkBtn).hover(function () { // cursor on btn
@@ -130,6 +131,7 @@
 			// 3.twitter Link Btn animation
 			link_btn(".bg-twitter", "#twitterLink", "https://twitter.com/Dispnt")
 			link_btn(".bg-steam", "#steamLink", "http://steam.dispnt.com/")
+			link_btn(".bg-qq","#qqLink","tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=570431231&website=www.oicqzone.com")
 
 			$(".bg-fofu1").click(function () {
 				window.open("https://www.dispnt.com/index.php/archives/50/", '_blank');
@@ -165,8 +167,8 @@
 
 				});
 
-				// posts number
-				if ($(document).width() > 1006) { //show only 2 post if sml screen
+				// posts 
+				if ($(document).width() > 1006) { 
 
 					let all_posts = $('.post-content').children()
 					let post_number = $('.post-content').children().length
@@ -175,16 +177,16 @@
 							$(".post:eq(" + i + ")").hide()
 						}
 					}
-
+					$(".posts").removeClass("bg-qq"); //remove bg-qq for large screen
 				}
-				else {
-					console.log("sml")
+				else { //show only 2 post if sml screen
 					let all_posts = $('.post-content').children()
 					let post_number = $('.post-content').children().length
-					console.log(all_posts)
 					for (let i = post_number - 1; i >= 2; i--) {
 						$(".post:eq(" + i + ")").hide()
 					}
+					
+					
 				}
 			});
 
@@ -333,20 +335,27 @@
 
 					</div>
 				</div>
-
-				<div class="flex pt-6 lg:hidden transform scale-75 text-white fill-current items-center justify-center ">
-
-
-
-
+			
+				<!-- sml screen qq tile -->
+				<div class="flex pt-6 lg:hidden transform scale-75 text-white fill-current items-center justify-center qq-svg">
 					<svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 448 512">
 						<path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path>
 					</svg>
-					<!-- <svg xmlns="http://www.w3.org/2000/svg" width="75.121" height="61.052" viewBox="0 0 75.121 61.052">
-						<path id="icons8-twitter" d="M75.063,12.844a30.83,30.83,0,0,1-8.858,2.43A15.451,15.451,0,0,0,72.984,6.75,30.947,30.947,0,0,1,63.2,10.485,15.418,15.418,0,0,0,36.937,24.542,43.765,43.765,0,0,1,5.17,8.441,15.445,15.445,0,0,0,9.94,29.019a15.4,15.4,0,0,1-6.984-1.932v.193A15.438,15.438,0,0,0,15.317,42.4a15.421,15.421,0,0,1-4.057.538,14.847,14.847,0,0,1-2.9-.28,15.447,15.447,0,0,0,14.4,10.709,30.9,30.9,0,0,1-19.14,6.595,30.3,30.3,0,0,1-3.671-.217A43.544,43.544,0,0,0,23.56,66.666c28.348,0,43.852-23.483,43.852-43.846,0-.667-.018-1.341-.04-2a31.325,31.325,0,0,0,7.692-7.98Z" transform="translate(0.058 -5.614)"></path>
-					</svg> -->
 				</div>
-
+				<div id="qqLink"
+					class="invisible absolute fixed bg-white w-11 h-11 left-3 bottom-3 rounded-full flex items-center justify-center cursor-pointer">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18.256" height="18.256" viewBox="0 0 18.256 18.256">
+						<g id="Group_7" data-name="Group 7" transform="translate(5.363 5.325)">
+							<path id="Path_10" data-name="Path 10" d="M14.581,7.05,7.05,14.581"
+								transform="translate(-7.05 -7.012)" fill="none" stroke="#0D1117" stroke-linecap="round"
+								stroke-linejoin="round" stroke-width="1.5"></path>
+							<path id="Path_11" data-name="Path 11" d="M10,7l5.287.037.038,5.287"
+								transform="translate(-7.756 -7)" fill="none" stroke="#0D1117" stroke-linecap="round"
+								stroke-linejoin="round" stroke-width="1.5"></path>
+						</g>
+						<path id="Path_12" data-name="Path 12" d="M0,0H18.256V18.256H0Z" fill="none"></path>
+					</svg>
+				</div>
 			</div>
 
 
