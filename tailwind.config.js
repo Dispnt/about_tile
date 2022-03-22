@@ -23,6 +23,7 @@ module.exports = {
         'darkmode':'#0d1117',
         'twitter':'#98d0ff',
         'steam':'#353230',
+        "qq":'#ffc78f',
        },
        width: {
         '0.25':'3px',

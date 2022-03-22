@@ -42,7 +42,10 @@
     box-shadow: transparent 0px 0px 0px 2px inset;
 }
 
-
+.blur {
+    --tw-blur: blur(8px);
+    filter: blur(8px);
+  }
 
 
 .NightModeToggle {
