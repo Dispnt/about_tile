@@ -18,6 +18,8 @@
 		const animationOutR = " animate__animated animate__fadeOutRight animate__faster"
 		const animationInL = " animate__animated animate__fadeInLeft animate__faster"
 		const animationOutL = " animate__animated animate__fadeOutLeft animate__faster"
+		const animationInU = " animate__animated animate__fadeInUp animate__faster"
+		const animationOutU = " animate__animated animate__fadeOutUp animate__faster"
 		const allAnimation = animationOutL + animationInL + animationInR + animationOutR
 		const label_weigh = { "#allSelector": 1, "#aboutSelector": 2, "#furSelector": 3, "#mediaSelector": 4 }
 
@@ -109,12 +111,12 @@
 					theme = 'light';
 				}
 			})
-			function link_btn(windowObj, LinkBtn, LinkURL) {
+			function link_btn(windowObj, LinkBtn, LinkURL, AnimationType = "L") {
 				
 				$(windowObj).hover(function () { // cursor on window
-					$(LinkBtn).removeClass('invisible ' + animationOutL).addClass(animationInL); //btn in anim
+					$(LinkBtn).removeClass("invisible " + eval("animationOut"+AnimationType)).addClass(eval("animationIn"+AnimationType)); //btn in anim
 					$(LinkBtn).hover(function () { // cursor on btn
-						$(LinkBtn).removeClass(animationInL).addClass("animate__animated animate__pulse animate__faster animate__infinite");//btn pulse
+						$(LinkBtn).removeClass(eval("animationIn"+AnimationType)).addClass("animate__animated animate__pulse animate__faster animate__infinite");//btn pulse
 					}, function () {
 						$(LinkBtn).removeClass("animate__animated animate__pulse animate__faster animate__infinite");//stop pulse when cursor out
 					})
@@ -124,14 +126,14 @@
 					})
 
 				}, function () {
-					$(LinkBtn).removeClass(animationInL).addClass(animationOutL);//btn out anim
+					$(LinkBtn).removeClass(eval("animationIn"+AnimationType)).addClass(eval("animationOut"+AnimationType));//btn out anim
 				});
 			}
 
 			// 3.twitter Link Btn animation
 			link_btn(".bg-twitter", "#twitterLink", "https://twitter.com/Dispnt")
 			link_btn(".bg-steam", "#steamLink", "http://steam.dispnt.com/")
-			link_btn(".bg-qq","#qqLink","tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=570431231&website=www.oicqzone.com")
+			
 
 			$(".bg-fofu1").click(function () {
 				window.open("https://www.dispnt.com/index.php/archives/50/", '_blank');
@@ -167,26 +169,27 @@
 
 				});
 
-				// posts 
+				// screen size
 				if ($(document).width() > 1006) { 
 
 					let all_posts = $('.post-content').children()
 					let post_number = $('.post-content').children().length
-					if (post_number > 12) { //show only 12 posts
+					if (post_number > 12) { //show only 12 posts large screen
 						for (let i = post_number - 1; i >= 12; i--) {
 							$(".post:eq(" + i + ")").hide()
 						}
 					}
 					$(".posts").removeClass("bg-qq"); //remove bg-qq for large screen
+					
 				}
-				else { //show only 2 post if sml screen
+				else {  //sml screen
 					let all_posts = $('.post-content').children()
 					let post_number = $('.post-content').children().length
 					for (let i = post_number - 1; i >= 2; i--) {
 						$(".post:eq(" + i + ")").hide()
-					}
-					
-					
+					} //show only 2 post if sml screen
+					link_btn(".bg-qq","#qqLink","https://qm.qq.com/cgi-bin/qm/qr?k=gwAN7xTFBfb7jUesY1nog6Jn3EiYIlAN&noverify=0","U")
+					//qq div
 				}
 			});
 
@@ -343,7 +346,7 @@
 					</svg>
 				</div>
 				<div id="qqLink"
-					class="invisible absolute fixed bg-white w-11 h-11 left-3 bottom-3 rounded-full flex items-center justify-center cursor-pointer">
+					class="invisible absolute fixed bg-white w-32 h-11 left-3 bottom-3 rounded-full flex items-center justify-center cursor-pointer">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18.256" height="18.256" viewBox="0 0 18.256 18.256">
 						<g id="Group_7" data-name="Group 7" transform="translate(5.363 5.325)">
 							<path id="Path_10" data-name="Path 10" d="M14.581,7.05,7.05,14.581"
@@ -354,7 +357,9 @@
 								stroke-linejoin="round" stroke-width="1.5"></path>
 						</g>
 						<path id="Path_12" data-name="Path 12" d="M0,0H18.256V18.256H0Z" fill="none"></path>
+						
 					</svg>
+					<a class="text-sm">&nbsp 570431231</a>
 				</div>
 			</div>
 
