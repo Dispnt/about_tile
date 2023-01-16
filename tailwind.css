@@ -955,6 +955,11 @@ video {
   border-color: rgba(247, 242, 242, var(--tw-border-opacity));
 }
 
+.dark .dark\:border-white {
+  --tw-border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -999,12 +1004,31 @@ video {
   background-color: rgba(255, 199, 143, var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-background-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgba(9, 12, 16, var(--tw-bg-opacity));
+}
+
 .bg-fofu1 {
   background-image: url('./img/1.png');
 }
 
 .bg-fofu2 {
   background-image: url('./img/2.png');
+}
+
+.dark .dark\:bg-none {
+  background-image: url('./img/none.png');
 }
 
 .bg-cover {
@@ -1159,6 +1183,11 @@ video {
   color: rgba(110, 210, 183, var(--tw-text-opacity));
 }
 
+.dark .dark\:text-white {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -1187,6 +1216,23 @@ video {
   --tw-ring-color: rgba(59, 130, 246, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
+}
+
+.filter {
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.blur {
+  --tw-blur: blur(8px);
 }
 
 .duration-1000 {

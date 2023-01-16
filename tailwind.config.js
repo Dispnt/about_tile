@@ -1,9 +1,9 @@
 module.exports = {
+  darkMode: 'class',
   purge: {
     enabled: true,
-    content: ['./*.html']
+    content: ['./*.html','./*.js']
   },
-  darkMode: 'class',
   theme: { 
     borderRadius: {
       'none': '0',
